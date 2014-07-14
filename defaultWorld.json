@@ -1,0 +1,142 @@
+{
+	"nat": {
+		"ajdacent": [
+			"nrg",
+			"cly",
+			"lvp",
+			"iri",
+			"mid"
+		],
+		"terrain": "sea",
+		"piece": "none",
+		"display_name": "North Atlantic Ocean"
+	},
+	"nrg": {
+		"ajdacent": [
+			"nat",
+			"cly",
+			"edi",
+			"nth"
+		],
+		"terrain": "sea",
+		"piece": "none",
+		"display_name": "Norwegian Sea"
+	},
+	"nth": {
+		"ajdacent": [
+			"nrg",
+			"edi",
+			"yor",
+			"lon",
+			"eng"
+		],
+		"terrain": "sea",
+		"piece": "none",
+		"display_name": "North Sea"
+	},
+	"eng": {
+		"ajdacent": [
+			"nth",
+			"mid",
+			"iri",
+			"wal",
+			"long"
+		],
+		"terrain": "sea",
+		"piece": "none",
+		"display_name": "English Channel"
+	},
+	"mid": {
+		"ajdacent": [
+			"nat",
+			"iri",
+			"eng"
+		],
+		"terrain": "sea",
+		"piece": "none",
+		"display_name": "Mid-Adlantic Ocean"
+	},
+	"iri": {
+		"ajdacent": [
+			"eng",
+			"mid",
+			"nat",
+			"lvp",
+			"wal"
+		],
+		"terrain": "sea",
+		"piece": "none",
+		"display_name": "Irish Sea"
+	},
+	"cly": {
+		"ajdacent": [
+			"nat",
+			"nrg",
+			"edi",
+			"lvp"
+		],
+		"terrain": "land",
+		"piece": "none",
+		"display_name": "Clyde"
+	},
+	"edi": {
+		"ajdacent": [
+			"nrg",
+			"nth",
+			"yor",
+			"lvp",
+			"cly"
+		],
+		"terrain": "land",
+		"piece": "none",
+		"display_name": "Edinburgh"
+	},
+	"yor": {
+		"ajdacent": [
+			"nth",
+			"lon",
+			"wal",
+			"lvp",
+			"edi"
+		],
+		"terrain": "land",
+		"piece": "none",
+		"display_name": "Yorkshire"
+	},
+	"lon": {
+		"ajdacent": [
+			"nth",
+			"eng",
+			"wal",
+			"yor"
+		],
+		"terrain": "land",
+		"piece": "none",
+		"display_name": "London"
+	},
+	"wal": {
+		"ajdacent": [
+			"eng",
+			"iri",
+			"lvp",
+			"yor",
+			"lon"
+		],
+		"terrain": "land",
+		"piece": "none",
+		"display_name": "Wales"
+	},
+	"liv": {
+		"ajdacent": [
+			"iri",
+			"nat",
+			"cly",
+			"edi",
+			"yor",
+			"wal"
+		],
+		"terrain": "land",
+		"piece": "none",
+		"display_name": "Liverpool"
+	}
+}
