@@ -1,88 +1,76 @@
 use std::collections::TreeMap;
-use std::io::File;
-use std::str::*;
 use serialize::json;
+use WorldModel::LocsType;
+// use util::cmp_str_string;
 
 
+#[deriving(Show)]
 enum Terrain {
 	Land,
 	Sea
 }
 
+#[deriving(Show)]
 pub struct Loc {
-	adjacent    : TreeMap<String, &Loc>,
-	terrain     : Terrain,
-	// piece      : Option<Piece>, TODO
-	display_name: String
+	adjacent     : Vec<String>,
+	terrain      : Terrain,
+	piece        : Option<String>,
+	supply_center: bool,
+	display_name : String
 }
 
 impl Loc {
-	// TODO this is enefficient, but probably doesn't matter
-	// pub fn from_file(&json_obj: &json::Json) -> TreeMap<String, Box<Loc>> {
-	pub fn from_file(filename: &str) -> TreeMap<String, Box<Loc>> {
-		let file_contents = File::open(&Path::new(filename)).read_to_end();
-		let contents      = from_utf8_owned(file_contents.unwrap()).unwrap();
-		let json_obj      = json::from_str(contents.as_slice()).unwrap();
-		let parent_obj    = get_json_Object_or_fail(&json_obj);
-		let mut locs: TreeMap<String, Box<Loc>> = TreeMap::new();
+	pub fn from_json_obj(json_obj: &json::Object) -> LocsType {
+		let parent_obj = json_obj.find(&String::from_str("locations")).unwrap().as_object().unwrap();
+		let mut locs: LocsType = TreeMap::new();
 
 		// insert blank locations
-		for (key, sub_json_obj) in parent_obj.iter() {
-			locs.insert(key.clone(), box Loc::new());
+		for (key, _) in parent_obj.iter() {
+			locs.insert(key.clone(), Loc::new());
 		}
 
 		// configure each location
 		for (key, sub_json_obj) in parent_obj.iter() {
-			let obj = get_json_Object_or_fail(sub_json_obj);
-			let mut loc = locs.find(key).unwrap();
+			let obj = sub_json_obj.as_object().unwrap();
+			let loc = locs.find_mut(key).unwrap();
 
 			// configure properties
-			let terrain_string = get_json_String_or_fail(obj, "terrain");
+			let terrain_key    = &String::from_str("terrain");
+			let terrain_str    = obj.find(terrain_key).unwrap().as_string().unwrap();
+			let terrain_string = String::from_str(terrain_str);
 			loc.terrain =
 				if terrain_string == String::from_str("Land") {
 					Land
 				} else {
 					Sea
 				};
-			loc.display_name = get_json_String_or_fail(obj, "display_name");
+			let disp_key = &String::from_str("display_name"); // TODO make these Strings static
+			let disp_str = obj.find(disp_key).unwrap().as_string().unwrap();
+			loc.display_name = String::from_str(disp_str);
 
-			// TODO this is horrid
 			// add adjacent locations
-			let adjacents = match obj.find(&String::from_str("adjacent")).unwrap() {
-				&json::List(list) => list.iter().map(|json_obj| match json_obj {
-					&json::String(ref val) => val.clone(),
-					_                      => fail!("not a string")
-				}),
-				_                 => fail!("not an array")
-			};
-			for adjacent in adjacents {
-				let (_, adjacent_loc) = locs.find(adjacent);
-				loc.adjacent.insert(adjacent, adjacent);
+			let adj_key = &String::from_str("adjacent");
+			let mut it = obj.find(adj_key).unwrap().as_list().unwrap().iter();
+			for adjacent in it {
+				let adj_string = String::from_str(adjacent.as_string().unwrap());
+				loc.adjacent.push(adj_string);
 			}
 		}
 		locs
 	}
 
+	pub fn set_piece(&self, player: String) {
+		self.piece == Some(player);
+	}
+
 	fn new() -> Loc {
 		Loc {
-			adjacent    : TreeMap::new(),
-			terrain     : Land,
-			display_name: String::new() // TODO inefficient
+			adjacent     : Vec::new(),
+			terrain      : Land,
+			display_name : String::new(),
+			piece        : None,
+			supply_center: false
 		}
 	}
 
 }
-
-	fn get_json_Object_or_fail(json_obj: &json::Json) -> &json::Object {
-		match json_obj {
-			&json::Object(ref obj) => obj,
-			_                      => fail!("not an object")
-		};
-	}
-
-	fn get_json_String_or_fail(object: &json::Object, key: &str) -> String {
-		match object.find(&String::from_str(key)).unwrap() {
-			&json::String(ref val) => val.clone(),
-			_                      => fail!("not a string")
-		}
-	}
