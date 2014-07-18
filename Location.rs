@@ -1,8 +1,9 @@
 use std::collections::TreeMap;
 use serialize::json;
 use WorldModel::LocsType;
-// use util::cmp_str_string;
 
+
+static comment: &'static str = "comment";
 
 #[deriving(Show)]
 enum Terrain {
@@ -21,38 +22,45 @@ pub struct Loc {
 
 impl Loc {
 	pub fn from_json_obj(json_obj: &json::Object) -> LocsType {
-		let parent_obj = json_obj.find(&String::from_str("locations")).unwrap().as_object().unwrap();
+		let parent_obj = json_obj.find(&("locations").to_string()).unwrap().as_object().unwrap();
 		let mut locs: LocsType = TreeMap::new();
 
 		// insert blank locations
 		for (key, _) in parent_obj.iter() {
+			if key.as_slice().contains(comment)  { // skip comments
+				continue;
+			}
+
 			locs.insert(key.clone(), Loc::new());
 		}
 
 		// configure each location
 		for (key, sub_json_obj) in parent_obj.iter() {
+			if key.as_slice().contains(comment)  { // skip comments
+				continue;
+			}
+
 			let obj = sub_json_obj.as_object().unwrap();
 			let loc = locs.find_mut(key).unwrap();
 
 			// configure properties
-			let terrain_key    = &String::from_str("terrain");
+			let terrain_key    = &("terrain").to_string();
 			let terrain_str    = obj.find(terrain_key).unwrap().as_string().unwrap();
-			let terrain_string = String::from_str(terrain_str);
 			loc.terrain =
-				if terrain_string == String::from_str("Land") {
+				if terrain_str.to_string() == ("Land").to_string() {
 					Land
 				} else {
 					Sea
 				};
-			let disp_key = &String::from_str("display_name"); // TODO make these Strings static
+			let disp_key = &("display_name").to_string(); // TODO make these Strings static
 			let disp_str = obj.find(disp_key).unwrap().as_string().unwrap();
-			loc.display_name = String::from_str(disp_str);
+			loc.display_name = disp_str.to_string();
 
 			// add adjacent locations
-			let adj_key = &String::from_str("adjacent");
+			let adj_key = &("adjacent").to_string();
 			let mut it = obj.find(adj_key).unwrap().as_list().unwrap().iter();
 			for adjacent in it {
-				let adj_string = String::from_str(adjacent.as_string().unwrap());
+				let adj_string = adjacent.as_string().unwrap().to_string();
 				loc.adjacent.push(adj_string);
 			}
 		}

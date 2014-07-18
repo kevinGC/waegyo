@@ -4,14 +4,16 @@ use std::str::*;
 use serialize::json;
 use Location::Loc;
 use player::Player;
+use CLIView::View;
+
 
 pub type LocsType = TreeMap<String, Loc>;
-// pub type PlayersType = TreeMap<String, Vec<Piece>>;
 
 #[deriving(Show)]
 pub struct Model {
 	locs   : LocsType,
-	players: Vec<Player>
+	players: Vec<Player>,
+	views  : Vec<View>
 }
 
 impl Model {
@@ -24,9 +26,17 @@ impl Model {
 		let mut locs = Loc::from_json_obj(parent_obj);
 		let players = Player::from_json_obj(parent_obj, &mut locs);
 		Model {
-			locs  : locs,
-			players: players
+			locs   : locs,
+			players: players,
+			views  : Vec::new()
 		}
 	}
-}
 
+	pub fn add_view(&mut self, view: View) {
+		self.views.push(view);
+	}
+
+	pub fn remove_view(&self, view: &View) {
+		// TODO
+	}
+}

@@ -1,5 +1,6 @@
 {
 	"locations": {
+		"_comment": "England and the seas that border it AND Mid-Adlantic",
 		"nat": {
 			"adjacent": [
 				"nrg",
@@ -127,6 +128,735 @@
 			],
 			"terrain": "land",
 			"display_name": "Liverpool"
+		},
+		"_comment1": "Bar, Hel, Ska, and the Baltic",
+		"bar": {
+			"adjacent": [
+				"stp",
+				"nwy",
+				"nrg"
+			],
+			"terrain": "sea",
+			"display_name": "Barents Sea"
+		},
+		"hel": {
+			"adjacent": [
+				"den",
+				"kie",
+				"hol",
+				"nth"
+			],
+			"terrain": "sea",
+			"display_name": "Helogoland Bight"
+		},
+		"ska": {
+			"adjacent": [
+				"nwy",
+				"swe",
+				"den",
+				"nth"
+			],
+			"terrain": "sea",
+			"display_name": "Skagerrack"
+		},
+		"bal": {
+			"adjacent": [
+				"swe",
+				"bot",
+				"lvn",
+				"pru",
+				"ber",
+				"den"
+			],
+			"terrain": "sea",
+			"display_name": "Baltic Sea"
+		},
+		"bot": {
+			"adjacent": [
+				"swe",
+				"fin",
+				"stp",
+				"lvn",
+				"bal"
+			],
+			"terrain": "sea",
+			"display_name": "Gulf of Bothnia"
+		},
+		"_comment2": "Mediterranian Sea and Bla",
+		"wes": {
+			"adjacent": [
+				"spa",
+				"gol",
+				"tyn",
+				"tun",
+				"naf"
+			],
+			"terrain": "sea",
+			"display_name": "Western Mediterranian"
+		},
+		"gol": {
+			"adjacent": [
+				"mar",
+				"pie",
+				"tus",
+				"tyn",
+				"wes",
+				"spa"
+			],
+			"terrain": "sea",
+			"display_name": "Gulf of Lyons"
+		},
+		"tyn": {
+			"adjacent": [
+				"gol",
+				"tus",
+				"rom",
+				"nap",
+				"ion",
+				"tun",
+				"wes"
+			],
+			"terrain": "sea",
+			"display_name": "Tyrrhenian Sea"
+		},
+		"Adr": {
+			"adjacent": [
+				"tri",
+				"alb",
+				"ion",
+				"apu",
+				"ven"
+			],
+			"terrain": "sea",
+			"display_name": "Adriatic Sea"
+		},
+		"ion": {
+			"adjacent": [
+				"adr",
+				"alb",
+				"gre",
+				"aeg",
+				"eas",
+				"tun",
+				"tyn",
+				"nap",
+				"apu"
+			],
+			"terrain": "sea",
+			"display_name": "Ionian Sea"
+		},
+		"aeg": {
+			"adjacent": [
+				"bul",
+				"bla",
+				"con",
+				"smy",
+				"eas",
+				"ion",
+				"gre"
+			],
+			"terrain": "sea",
+			"display_name": "Aegean Sea"
+		},
+		"eas": {
+			"adjacent": [
+				"ion",
+				"aeg",
+				"smy",
+				"syr"
+			],
+			"terrain": "sea",
+			"display_name": "Eastern Mediterranian"
+		},
+		"bla": {
+			"adjacent": [
+				"sev",
+				"arm",
+				"ank",
+				"con",
+				"aeg",
+				"bul",
+				"rum"
+			],
+			"terrain": "sea",
+			"display_name": "Black Sea"
+		},
+		"_comment3": "Scandanavia + Denmark",
+		"nwy": {
+			"adjacent": [
+				"nrg",
+				"bar",
+				"stp",
+				"fin",
+				"swe",
+				"ska",
+				"nth"
+			],
+			"terrain": "sea",
+			"display_name": "Norway"
+		},
+		"swe": {
+			"adjacent": [
+				"nwy",
+				"fin",
+				"bot",
+				"bal",
+				"den",
+				"ska"
+			],
+			"terrain": "sea",
+			"display_name": "Sweden"
+		},
+		"den": {
+			"adjacent": [
+				"ska",
+				"swe",
+				"bal",
+				"kie",
+				"hel",
+				"nth"
+			],
+			"terrain": "sea",
+			"display_name": "Denmark"
+		},
+		"_comment4": "Iberian peninsula",
+			"por": {
+			"adjacent": [
+				"mid",
+				"spa"
+			],
+			"terrain": "sea",
+			"display_name": "Portugal"
+		},
+			"spa": {
+			"adjacent": [
+				"mid",
+				"gas",
+				"mar",
+				"gol",
+				"wes",
+				"por"
+			],
+			"terrain": "sea",
+			"display_name": "Spain"
+		},
+		"_comment5": "North Africa",
+		"naf": {
+			"adjacent": [
+				"mid",
+				"wes",
+				"tun"
+			],
+			"terrain": "sea",
+			"display_name": "North Africa"
+		},
+		"tun": {
+			"adjacent": [
+				"naf",
+				"wes",
+				"tyn",
+				"ion"
+			],
+			"terrain": "sea",
+			"display_name": "Tunisia"
+		},
+		"_comment6": "Belgium and Holland",
+		"bel": {
+			"adjacent": [
+				"nth",
+				"hol",
+				"ruh",
+				"bur",
+				"pic",
+				"eng"
+			],
+			"terrain": "sea",
+			"display_name": "Belgium"
+		},
+		"hol": {
+			"adjacent": [
+				"nth",
+				"hel",
+				"kie",
+				"ruh",
+				"bel"
+			],
+			"terrain": "sea",
+			"display_name": "Holland"
+		},
+		"_comment7": "France",
+			"bre": {
+			"adjacent": [
+				"mid",
+				"eng",
+				"pic",
+				"par",
+				"gas"
+			],
+			"terrain": "sea",
+			"display_name": "Brest"
+		},
+		"pic": {
+			"adjacent": [
+				"eng",
+				"bel",
+				"bur",
+				"par",
+				"bre"
+			],
+			"terrain": "sea",
+			"display_name": "Picardy"
+		},
+		"bur": {
+			"adjacent": [
+				"bel",
+				"ruh",
+				"mun",
+				"mar",
+				"gas",
+				"par",
+				"pic"
+			],
+			"terrain": "sea",
+			"display_name": "Burgundy"
+		},
+		"mar": {
+			"adjacent": [
+				"bur",
+				"pie",
+				"gol",
+				"spa",
+				"gas"
+			],
+			"terrain": "sea",
+			"display_name": "Marseilles"
+		},
+		"gas": {
+			"adjacent": [
+				"bre",
+				"par",
+				"bur",
+				"mar",
+				"spa",
+				"mid"
+			],
+			"terrain": "sea",
+			"display_name": "Gascony"
+		},
+		"par": {
+			"adjacent": [
+				"pic",
+				"bur",
+				"gas",
+				"bre"
+			],
+			"terrain": "sea",
+			"display_name": "Paris"
+		},
+		"_comment8": "Germany",
+		"kie": {
+			"adjacent": [
+				"den",
+				"bal",
+				"ber",
+				"mun",
+				"ruh",
+				"hol",
+				"hel"
+			],
+			"terrain": "sea",
+			"display_name": "Kiel"
+		},
+		"ber": {
+			"adjacent": [
+				"bal",
+				"pru",
+				"sil",
+				"mun",
+				"kie"
+			],
+			"terrain": "sea",
+			"display_name": "Berlin"
+		},
+		"pru": {
+			"adjacent": [
+				"bal",
+				"lvn",
+				"war",
+				"sil",
+				"ber"
+			],
+			"terrain": "sea",
+			"display_name": "Prussia"
+		},
+		"sil": {
+			"adjacent": [
+				"pru",
+				"war",
+				"gal",
+				"boh",
+				"mun",
+				"ber"
+			],
+			"terrain": "sea",
+			"display_name": "Silesia"
+		},
+		"mun": {
+			"adjacent": [
+				"ber",
+				"sil",
+				"boh",
+				"tyr",
+				"bur",
+				"ruh",
+				"kie"
+			],
+			"terrain": "sea",
+			"display_name": "Munich"
+		},
+		"ruh": {
+			"adjacent": [
+				"kie",
+				"mun",
+				"bur",
+				"bel",
+				"hol"
+			],
+			"terrain": "sea",
+			"display_name": "Ruhr"
+		},
+		"_comment9": "Italy",
+			"pie": {
+			"adjacent": [
+				"tyr",
+				"ven",
+				"tus",
+				"pie"
+			],
+			"terrain": "sea",
+			"display_name": "Piedmont"
+		},
+		"ven": {
+			"adjacent": [
+				"tyr",
+				"tri",
+				"adr",
+				"apu",
+				"rom",
+				"tus",
+				"pie"
+			],
+			"terrain": "sea",
+			"display_name": "Venice"
+		},
+		"apu": {
+			"adjacent": [
+				"adr",
+				"ion",
+				"nap",
+				"rom",
+				"ven"
+			],
+			"terrain": "sea",
+			"display_name": "Apulia"
+		},
+		"nap": {
+			"adjacent": [
+				"apu",
+				"ion",
+				"tyn",
+				"rom"
+			],
+			"terrain": "sea",
+			"display_name": "Naples"
+		},
+		"rom": {
+			"adjacent": [
+				"ven",
+				"apu",
+				"nap",
+				"tyn",
+				"tus"
+			],
+			"terrain": "sea",
+			"display_name": "Rome"
+		},
+		"tus": {
+			"adjacent": [
+				"ven",
+				"rom",
+				"tyn",
+				"gol",
+				"pie"
+			],
+			"terrain": "sea",
+			"display_name": "Tuscany"
+		},
+		"_comment10": "Austria-Hungary",
+		"boh": {
+			"adjacent": [
+				"sil",
+				"gal",
+				"vie",
+				"tyr",
+				"mun"
+			],
+			"terrain": "sea",
+			"display_name": "Bohemia"
+		},
+		"gal": {
+			"adjacent": [
+				"war",
+				"ukr",
+				"rum",
+				"bud",
+				"vie",
+				"boh",
+				"sil"
+			],
+			"terrain": "sea",
+			"display_name": "Galicia"
+		},
+		"bud": {
+			"adjacent": [
+				"gal",
+				"rum",
+				"ser",
+				"tri",
+				"vie"
+			],
+			"terrain": "sea",
+			"display_name": "Budapest"
+		},
+		"tri": {
+			"adjacent": [
+				"vie",
+				"bud",
+				"ser",
+				"alb",
+				"adr",
+				"ven",
+				"tyr"
+			],
+			"terrain": "sea",
+			"display_name": "Trieste"
+		},
+		"tyr": {
+			"adjacent": [
+				"boh",
+				"vie",
+				"tri",
+				"ven",
+				"pie",
+				"mun"
+			],
+			"terrain": "sea",
+			"display_name": "Tyrolia"
+		},
+		"vie": {
+			"adjacent": [
+				"boh",
+				"gal",
+				"bud",
+				"tri",
+				"tyr"
+			],
+			"terrain": "sea",
+			"display_name": "Vienna"
+		},
+		"_comment11": "Turkey",
+		"con": {
+			"adjacent": [
+				"bla",
+				"ank",
+				"smy",
+				"aeg",
+				"bul"
+			],
+			"terrain": "sea",
+			"display_name": "Constantinople"
+		},
+		"ank": {
+			"adjacent": [
+				"bla",
+				"arm",
+				"smy",
+				"con"
+			],
+			"terrain": "sea",
+			"display_name": "Ankara"
+		},
+		"arm": {
+			"adjacent": [
+				"sev",
+				"syr",
+				"smy",
+				"ank",
+				"bla"
+			],
+			"terrain": "sea",
+			"display_name": "Armenia"
+		},
+		"syr": {
+			"adjacent": [
+				"arm",
+				"eas",
+				"smy"
+			],
+			"terrain": "sea",
+			"display_name": "Syria"
+		},
+		"smy": {
+			"adjacent": [
+				"ank",
+				"arm",
+				"syr",
+				"eas",
+				"aeg",
+				"con"
+			],
+			"terrain": "sea",
+			"display_name": "Smyrna"
+		},
+		"_comment12": "Russia",
+		"fin": {
+			"adjacent": [
+				"nwy",
+				"stp",
+				"bot",
+				"swe"
+			],
+			"terrain": "sea",
+			"display_name": "Finland"
+		},
+		"stp": {
+			"adjacent": [
+				"bar",
+				"mos",
+				"lvn",
+				"bot",
+				"fin"
+			],
+			"terrain": "sea",
+			"display_name": "St. Petersburg"
+		},
+		"mos": {
+			"adjacent": [
+				"stp",
+				"sev",
+				"ukr",
+				"mar",
+				"lvn"
+			],
+			"terrain": "sea",
+			"display_name": "Moscow"
+		},
+		"lvn": {
+			"adjacent": [
+				"bot",
+				"stp",
+				"mos",
+				"war",
+				"pru",
+				"bal"
+			],
+			"terrain": "sea",
+			"display_name": "Livonia"
+		},
+		"war": {
+			"adjacent": [
+				"pru",
+				"lvn",
+				"mos",
+				"ukr",
+				"gal",
+				"sil"
+			],
+			"terrain": "sea",
+			"display_name": "Warsaw"
+		},
+		"ukr": {
+			"adjacent": [
+				"mos",
+				"sev",
+				"rum",
+				"gal",
+				"war"
+			],
+			"terrain": "sea",
+			"display_name": "Ukraine"
+		},
+		"sev": {
+			"adjacent": [
+				"mos",
+				"arm",
+				"ank",
+				"bla",
+				"rum",
+				"ukr"
+			],
+			"terrain": "sea",
+			"display_name": "Sevastopol"
+		},
+		"_comment13": "Greece and such",
+		"rum": {
+			"adjacent": [
+				"ukr",
+				"sev",
+				"bla",
+				"bul",
+				"ser",
+				"bud",
+				"gal"
+			],
+			"terrain": "sea",
+			"display_name": "Rumania"
+		},
+		"bul": {
+			"adjacent": [
+				"rum",
+				"bla",
+				"con",
+				"aeg",
+				"gre",
+				"ser"
+			],
+			"terrain": "sea",
+			"display_name": "Bulgaria"
+		},
+		"gre": {
+			"adjacent": [
+				"ser",
+				"bul",
+				"aeg",
+				"ion",
+				"alb"
+			],
+			"terrain": "sea",
+			"display_name": "Greece"
+		},
+		"alb": {
+			"adjacent": [
+				"tri",
+				"ser",
+				"gre",
+				"ion",
+				"adr"
+			],
+			"terrain": "sea",
+			"display_name": "Albania"
+		},
+		"ser": {
+			"adjacent": [
+				"bud",
+				"rum",
+				"bul",
+				"gre",
+				"alb",
+				"tri"
+			],
+			"terrain": "sea",
+			"display_name": "Serbia"
 		}
 	},
 	"nations": {
@@ -137,60 +867,60 @@
 				{ "loc": "edi", "type": "fleet" },
 				{ "loc": "liv", "type": "army" }
 			]
-		}/*,
-		"": {
-			"display_name": "England",
+		},
+		"aus": {
+			"display_name": "Austria",
 			"pieces": [
-				{ "loc": "", "type": "",},
-				{ "loc": "", "type": "",},
-				{ "loc": "", "type": "",}
+				{ "loc": "vie", "type": "army" },
+				{ "loc": "bud", "type": "army" },
+				{ "loc": "tri", "type": "fleet" }
 
 			]
 		},
-		"eng": {
-			"display_name": "England",
+		"fra": {
+			"display_name": "France",
 			"pieces": [
-				{ "loc": "", "type": "",},
-				{ "loc": "", "type": "",},
-				{ "loc": "", "type": "",}
+				{ "loc": "par", "type": "army" },
+				{ "loc": "mar", "type": "army" },
+				{ "loc": "bre", "type": "fleet" }
 
 			]
 		},
-		"eng": {
-			"display_name": "England",
+		"ger": {
+			"display_name": "Germany",
 			"pieces": [
-				{ "loc": "", "type": "",},
-				{ "loc": "", "type": "",},
-				{ "loc": "", "type": "",}
+				{ "loc": "ber", "type": "army" },
+				{ "loc": "mun", "type": "army" },
+				{ "loc": "kie", "type": "fleet" }
 
 			]
 		},
-		"eng": {
-			"display_name": "England",
+		"ita": {
+			"display_name": "Italy",
 			"pieces": [
-				{ "loc": "", "type": "",},
-				{ "loc": "", "type": "",},
-				{ "loc": "", "type": "",}
+				{ "loc": "rom", "type": "army" },
+				{ "loc": "ven", "type": "army" },
+				{ "loc": "nap", "type": "fleet" }
 
 			]
 		},
-		"eng": {
-			"display_name": "England",
+		"rus": {
+			"display_name": "Russia",
 			"pieces": [
-				{ "loc": "", "type": "",},
-				{ "loc": "", "type": "",},
-				{ "loc": "", "type": "",}
+				{ "loc": "mos", "type": "army" },
+				{ "loc": "war", "type": "army" },
+				{ "loc": "sev", "type": "fleet" },
+				{ "loc": "stp", "type": "fleet" }
 
 			]
 		},
-		"eng": {
-			"display_name": "England",
+		"tur": {
+			"display_name": "Turkey",
 			"pieces": [
-				{ "loc": "", "type": "",},
-				{ "loc": "", "type": "",},
-				{ "loc": "", "type": "",},
-				{ "loc": "", "type": "",}
+				{ "loc": "ank", "type": "army" },
+				{ "loc": "con", "type": "army" },
+				{ "loc": "smy", "type": "fleet" }
 			]
-		}*/
+		}
 	}
 }
