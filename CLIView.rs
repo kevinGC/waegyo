@@ -1,8 +1,7 @@
 use std::collections::TreeMap;
-use player::PieceType;
+use piece::PieceType;
 
 
-#[deriving(Show)]
 pub struct View {
 	locs: TreeMap<String, (String, PieceType)>
 }
@@ -23,8 +22,10 @@ impl View {
 	}
 
 	pub fn show(&self) {
+		println!("Showing map:");
 		for (loc_name, &(ref nation_name, piece_type)) in self.locs.iter() {
 			println!("{}: {} {}", loc_name, nation_name, piece_type);
 		}
+		println!("Done showing map");
 	}
 }

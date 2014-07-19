@@ -1,19 +1,26 @@
 use std::collections::TreeMap;
 use std::io::File;
 use std::str::*;
+use std::rc::Rc;
+use std::cell::RefCell;
 use serialize::json;
 use Location::Loc;
 use player::Player;
 use CLIView::View;
 
 
-pub type LocsType = TreeMap<String, Loc>;
+// TODO when to use Rc vs Arc?
+// TODO Cell vs RefCell
+// TODO I want this RefCell junk gone. Possible?
 
-#[deriving(Show)]
+pub type LocsType = TreeMap<String, Rc<RefCell<Loc>>>;
+pub type PlayersType = Vec<Rc<RefCell<Player>>>;
+
 pub struct Model {
 	locs   : LocsType,
-	players: Vec<Player>,
-	views  : Vec<View>
+	// locs   : LocsType,
+	players: PlayersType,
+	views  : Vec<Rc<View>>
 }
 
 impl Model {
@@ -32,7 +39,7 @@ impl Model {
 		}
 	}
 
-	pub fn add_view(&mut self, view: View) {
+	pub fn add_view(&mut self, view: Rc<View>) {
 		self.views.push(view);
 	}
 

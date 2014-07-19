@@ -1,9 +1,12 @@
+use std::rc::Rc;
 use WorldModel::Model;
 use CLIView::View;
 
 pub fn run() {
 	let mut model = Model::new("defaultWorld.json");
-	let view = View::new();
-	model.add_view(view);
-	println!("{}", model);
+	println!("Model created");
+	let view = Rc::new(View::new());
+	model.add_view(view.clone());
+
+	view.show();
 }

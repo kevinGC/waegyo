@@ -8,6 +8,7 @@ use CLIController::run;
 mod WorldModel;
 mod Location; // TODO why is this here and not in WorldModel?
 mod player;
+mod piece;
 mod CLIController;
 mod CLIView;
 

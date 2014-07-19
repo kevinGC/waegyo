@@ -1,24 +1,24 @@
 use std::collections::TreeMap;
+use std::rc::Rc;
+use std::cell::RefCell;
 use serialize::json;
-use WorldModel::LocsType;
+use WorldModel::{LocsType, PlayersType};
+use Location::Loc;
+use piece::{Fleet, Army};
 
-#[deriving(Show)]
-pub enum PieceType {
-	Army,
-	Fleet
-}
 
-#[deriving(Show)]
 pub struct Player {
 	display_name: String,
-	pieces      : TreeMap<String, PieceType>
+	// pieces      : TreeMap<String, PieceType>
+	piece_locs  : RefCell<Vec<Rc<RefCell<Loc>>>>
 }
 
 // TODO find_equiv and hash map?
+// TODO naming with player vs nation
 impl Player {
 	// TODO some of this unwrapping has to be handled for meaninful feedback
 	// regarding ill-formed input files
-	pub fn from_json_obj(parent_obj: &json::Object, locs: &mut LocsType) -> Vec<Player> {
+	pub fn from_json_obj(parent_obj: &json::Object, locs: &mut LocsType) -> PlayersType {
 		let mut players = Vec::new();
 
 		let nations: &TreeMap<String, json::Json> = parent_obj.find(&("nations").to_string()).unwrap()
@@ -29,10 +29,10 @@ impl Player {
 			let display_name = nation.find(&("display_name").to_string()).unwrap()
 				.as_string().unwrap();
 
-			let mut player = Player {
-				display_name: String::from_str(display_name),
-				pieces      : TreeMap::new()
-			};
+			let mut player = Rc::new(RefCell::new(Player {
+				display_name: display_name.to_string(),
+				piece_locs  : RefCell::new(Vec::new())
+			}));
 
 			let pieces = nation.find(&("pieces").to_string()).unwrap().as_list()
 				.unwrap();
@@ -50,8 +50,9 @@ impl Player {
 					};
 
 				// add piece to location, piece to player, and player to players
-				locs.find_mut(&piece_loc_string).unwrap().set_piece(nation_name.clone());
-				player.pieces.insert(piece_loc_string, piece_type);
+				let loc: &Rc<RefCell<Loc>> = locs.find(&piece_loc_string).unwrap();
+				loc.borrow_mut().set_piece(player.clone(), piece_type);
+				player.borrow_mut().piece_locs.borrow_mut().push(loc.clone());
 			}
 			players.push(player);
 		}
